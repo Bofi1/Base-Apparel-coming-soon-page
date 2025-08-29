@@ -6,38 +6,57 @@
     <title>Document</title>
     <link rel="stylesheet" href="output.css" />
   </head>
-  <body class="bg-[#FFF9F9] font-JosefinSans">
-    <article class="mb-10">
-      <!-- header -->
-      <header class="p-10">
-        <img src="images/logo.svg" alt="logo-icon" />
-      </header>
+  <body
+    class="bg-[#FFF9F9] font-JosefinSans w-full h-full desktop:overflow-hidden desktop:flex flex-col items-center"
+  >
+    <header class="p-10 desktop:hidden">
+      <img src="images/logo.svg" alt="logo-icon" />
+    </header>
 
-      <!-- image -->
-      <div class="w-full">
+    <article
+      class="mb-10 desktop:flex justify-between desktop:max-w-[1700px] desktop:w-full"
+    >
+      <!-- image mobile -->
+      <div class="w-full desktop:hidden">
         <img class="w-full" src="images/hero-mobile.jpg" alt="" />
       </div>
 
+      <!-- image desktop -->
+      <div
+        class="hidden desktop:flex order-2 z-10 h-[100vh] w-[50vw] relative right-0 max-h-[950px] max-w-[753.5px]"
+      >
+        <img class="w-full h-full" src="images/hero-desktop.jpg" alt="" />
+      </div>
+
       <!-- content -->
-      <main class="mt-10 mx-8">
+      <main
+        class="mt-10 mx-8 order-1 desktop:m-0 desktop:flex desktop:flex-col desktop:justify-center desktop:pl-[100px] relative"
+      >
+        <header class="p-10 pl-0 hidden desktop:flex absolute top-0">
+          <img src="images/logo.svg" alt="logo-icon" />
+        </header>
         <h1
-          class="uppercase text-4xl text-[#CFAAAB] text-center font-[100] tracking-[0.7rem]"
+          class="uppercase text-4xl text-[#CFAAAB] text-center font-[100] tracking-[0.7rem] desktop:text-start desktop:text-7xl desktop:tracking-[0.9rem]"
         >
           we´re <br />
           <span class="text-[#423A3B] font-[600]">coming <br />soon</span>
         </h1>
-        <h2 class="text-center text-sm text-[#CFAAAB] mt-6">
+        <h2
+          class="text-center text-sm text-[#CFAAAB] mt-6 desktop:max-w-[450px] desktop:text-base desktop:font-bold desktop:text-start"
+        >
           Hello fellow shoppers! We´re currently building our new fashion store.
           Add your email below to stay up-to-date with announcements and our
           launch deals.
         </h2>
 
         <!-- input -->
-        <form class="relative flex mt-7">
+        <form id="form" class="relative flex mt-7" novalidate>
           <input
-            class="text-sm text-[#E8D5D6] placeholder-[#E8D5D6] bg-transparent border-2 border-[#EBD8D7] w-full pl-5 py-3 pr-[90px] rounded-full"
+            id="email"
+            class="text-sm text-[#E8D5D6] placeholder-[#E8D5D6] bg-transparent border-2 border-[#EBD8D7] w-full pl-5 py-4 pr-[90px] rounded-full appearance-none outline-none"
             type="email"
             placeholder="Email Address"
+            required
           />
           <button
             class="bg-red-500 p-3 px-8 rounded-full bg-gradientMain hover:opacity-50 absolute h-full right-0"
@@ -46,7 +65,14 @@
             <img src="images/icon-arrow.svg" alt="submit-button-logo" />
           </button>
         </form>
+        <span
+          id="error-text"
+          class="text-[#fa3e3d] text-sm ml-5 font-[500] hidden"
+          >Please provide a valid email</span
+        >
       </main>
     </article>
+
+    <script src="app.js"></script>
   </body>
 </html>
